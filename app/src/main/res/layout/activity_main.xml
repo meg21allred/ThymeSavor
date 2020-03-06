@@ -49,6 +49,7 @@
         android:textColor="#205114"
         android:textSize="30sp"
         android:textStyle="bold"
+        android:onClick="newRecipe"
         app:layout_constraintBottom_toTopOf="@+id/loadRecipeBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
