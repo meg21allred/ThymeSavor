@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Recipe {
     private String recipeTitle;
-    private List <Ingredient> ingredients;
-    private List <Step> steps;
+    private List <ingredients> ingredients;
+    private List <steps> steps;
     private List <String> tags;
 
     public String getRecipeTitle() {
@@ -16,19 +16,19 @@ public class Recipe {
         this.recipeTitle = recipeTitle;
     }
 
-    public List<Ingredient> getIngredients() {
+    public List<ingredients> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    public void setIngredients(List <ingredients> ingredients) {
         this.ingredients = ingredients;
     }
 
-    public List<Step> getSteps() {
+    public List<steps> getSteps() {
         return steps;
     }
 
-    public void setSteps(List<Step> steps) {
+    public void setSteps(List<steps> steps) {
         this.steps = steps;
     }
 
