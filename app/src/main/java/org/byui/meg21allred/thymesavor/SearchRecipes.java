@@ -8,24 +8,28 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-public class DisplayRecipeActivity extends AppCompatActivity {
+public class SearchRecipes extends AppCompatActivity {
 
-    Button startCookingBtn;
+    Button searchBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_display_recipe);
+        setContentView(R.layout.activity_search_recipes);
 
-        startCookingBtn = (Button) findViewById(R.id.startCookingBtn);
+        searchBtn = (Button) findViewById(R.id.searchBtn);
+
     }
 
-    public void displaySteps(View view) { startDisplayStepsActivity();}
 
-    public void startDisplayStepsActivity() {
-        Intent intent = new Intent(this, DisplaySteps.class);
+    public void searchRecipes(View view) { searchRecipesActivity();}
+
+    public void searchRecipesActivity() {
+        Intent intent = new Intent(this, DisplayRecipeActivity.class);
         startActivity(intent);
     }
+
+
 }

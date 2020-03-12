@@ -8,24 +8,24 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-public class DisplayRecipeActivity extends AppCompatActivity {
+public class TimerActivity extends AppCompatActivity {
 
-    Button startCookingBtn;
-
+    Button mainMenu2Btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_display_recipe);
+        setContentView(R.layout.activity_timer);
 
-        startCookingBtn = (Button) findViewById(R.id.startCookingBtn);
+        mainMenu2Btn = (Button) findViewById(R.id.mainMenu2Btn);
+
     }
 
-    public void displaySteps(View view) { startDisplayStepsActivity();}
+    public void mainMenu2(View view) { goToMainMenu2Activity();}
 
-    public void startDisplayStepsActivity() {
-        Intent intent = new Intent(this, DisplaySteps.class);
+    public void goToMainMenu2Activity() {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

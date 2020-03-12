@@ -8,24 +8,24 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-public class DisplayRecipeActivity extends AppCompatActivity {
+public class DisplaySteps extends AppCompatActivity {
 
-    Button startCookingBtn;
+    Button nextStepBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_display_recipe);
+        setContentView(R.layout.activity_display_steps);
 
-        startCookingBtn = (Button) findViewById(R.id.startCookingBtn);
+        nextStepBtn = (Button) findViewById(R.id.nextStepBtn);
     }
 
-    public void displaySteps(View view) { startDisplayStepsActivity();}
+    public void nextStep(View view) {goFinishRecipeActivity();}
 
-    public void startDisplayStepsActivity() {
-        Intent intent = new Intent(this, DisplaySteps.class);
+    public void goFinishRecipeActivity() {
+        Intent intent = new Intent (this, FinishRecipe.class);
         startActivity(intent);
     }
 }
