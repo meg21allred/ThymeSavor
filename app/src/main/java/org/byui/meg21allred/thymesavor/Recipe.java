@@ -48,6 +48,14 @@ public class Recipe {
 
     }
 
+    public void addIngredientAmount() {
+
+    }
+
+    public void addIngredientType() {
+
+    }
+
     public void addSteps() {
 
     }
