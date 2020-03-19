@@ -26,7 +26,7 @@ public class NewRecipeActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_new_recipe);
 
-        addIngredientsViewModel = new ViewModelProvider(this).get(AddIngredientsViewModel.class);
+       /* addIngredientsViewModel = new ViewModelProvider(this).get(AddIngredientsViewModel.class);
         addIngredientsViewModel.getAllIngredients().observe(this, new Observer<List<AddIngredients>>() {
             @Override
             public void onChanged(List<AddIngredients> addIngredients) {
@@ -35,7 +35,7 @@ public class NewRecipeActivity extends AppCompatActivity {
             }
         });
 
-        addStepsActitivyBtn = (Button) findViewById(R.id.addStepsActivityBtn);
+        addStepsActitivyBtn = (Button) findViewById(R.id.addStepsActivityBtn);*/
     }
 
     public void addSteps(View v) {
