@@ -14,6 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504"
         app:srcCompat="@drawable/ic_thyme_savor_background" />
 
     <TextView
@@ -37,13 +38,14 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="32dp"
         android:background="#ffffff"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Enter time..."
+        android:text="Enter number of minutes..."
         android:textColor="@android:color/darker_gray"
+        android:onClick="clearMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +62,7 @@
         android:text="Start"
         android:textColor="#107020"
         android:textSize="24sp"
+        android:onClick="startTimer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterTimeET" />
@@ -75,7 +78,7 @@
         android:text="0.0"
         android:textAlignment="center"
         android:textColor="#107020"
-        android:textSize="24sp"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,6 +95,7 @@
         android:text="Pause"
         android:textColor="#107020"
         android:textSize="24sp"
+        android:onClick="pauseTimer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/counterTV" />
@@ -101,19 +105,35 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/round_button"
+        android:onClick="mainMenu2"
         android:text="Main Menu"
         android:textColor="#107020"
         android:textSize="24sp"
-        android:onClick="mainMenu2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pauseBtn"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintTop_toBottomOf="@+id/resetBtn"
+        app:layout_constraintVertical_bias="0.272" />
+
+    <Button
+        android:id="@+id/resetBtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/round_button"
+        android:text="Reset"
+        android:textColor="#107020"
+        android:textSize="24sp"
+        android:onClick="resetTimer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pauseBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
