@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openNewRecipeActivity() {
-        Intent intent = new Intent(this, NewRecipeActivity.class);
+        Intent intent = new Intent(this, AddRecipeRoom.class);
         startActivity(intent);
 
     }

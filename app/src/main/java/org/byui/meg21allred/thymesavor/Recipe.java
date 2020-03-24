@@ -1,62 +1,68 @@
 package org.byui.meg21allred.thymesavor;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.List;
 
+@Entity(tableName = "recipe_table")
 public class Recipe {
-    private String recipeTitle;
-    private List <ingredients> ingredients;
-    private List <steps> steps;
-    private List <String> tags;
 
-    public String getRecipeTitle() {
-        return recipeTitle;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    @NonNull
+    @ColumnInfo(name = "title")
+    private String title;
+    /*@NonNull
+    @ColumnInfo(name = "ingredient")
+    private String ingredient;
+    private double amount;
+    @NonNull
+    @ColumnInfo(name = "type")
+    private String type;
+    @NonNull
+    @ColumnInfo(name = "step")
+    private String step;
+
+    public Recipe(String title, String ingredient, double amount, String type, String step) {
+        this.title = title;
+        this.ingredient = ingredient;
+        this.amount = amount;
+        this.type = type;
+        this.step = step;
+    }*/
+
+    public Recipe(@NonNull String title) {
+        this.title = title;
     }
 
-    public void setRecipeTitle(String recipeTitle) {
-        this.recipeTitle = recipeTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public List<ingredients> getIngredients() {
-        return ingredients;
+   /* public String getIngredient() {
+        return ingredient;
     }
 
-    public void setIngredients(List <ingredients> ingredients) {
-        this.ingredients = ingredients;
+    public double getAmount() {
+        return amount;
     }
 
-    public List<steps> getSteps() {
-        return steps;
+    public String getType() {
+        return type;
     }
 
-    public void setSteps(List<steps> steps) {
-        this.steps = steps;
+    public String getStep() {
+        return step;
+    }*/
+
+    public int getId() {
+        return id;
     }
 
-    public List<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<String> tags) {
-        this.tags = tags;
-    }
-
-    public void addTitle() {
-
-    }
-
-    public void addIngredients() {
-
-    }
-
-    public void addIngredientAmount() {
-
-    }
-
-    public void addIngredientType() {
-
-    }
-
-    public void addSteps() {
-
+    public void setId(int id) {
+        this.id = id;
     }
 }
