@@ -96,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/stepET" />
 
     <EditText
-        android:id="@+id/AmountET"
+        android:id="@+id/amountET"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"

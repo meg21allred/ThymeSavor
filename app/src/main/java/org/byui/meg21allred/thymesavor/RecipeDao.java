@@ -23,8 +23,8 @@ public interface RecipeDao {
     LiveData<List<Recipe>> getAlphabetizedTitles();
 
     @Update
-    public void updateRecipe(Recipe recipe);
+    public void update(Recipe recipe);
 
     @Delete
-    public void deleteRecipe(Recipe recipe);
+    public void delete(Recipe recipe);
 }

@@ -20,10 +20,15 @@ import java.util.List;
 
 public class NewRecipeActivity extends AppCompatActivity {
 
-    public static final String EXTRA_REPLY = "org.byui.meg21allred.thymesavor.REPLY";
+    public static final String EXTRA_TITLE = "org.byui.meg21allred.thymesavor.EXTRA_TITLE";
+    public static final String EXTRA_INGREDIENT = "org.byui.meg21allred.thymesavor.EXTRA_INGREDIENT";
+
 
     private EditText titleET;
     private EditText enterIngredientET;
+    private EditText amountET;
+    private EditText typeET;
+    private EditText stepET;
     private Button addIngredientBtn;
     private TextView ingredientsTV;
 
@@ -37,9 +42,13 @@ public class NewRecipeActivity extends AppCompatActivity {
 
         titleET = (EditText) findViewById(R.id.titleET);
         enterIngredientET = (EditText) findViewById(R.id.enterIngredientET);
+        amountET = (EditText) findViewById(R.id.amountET);
+        typeET = (EditText) findViewById(R.id.typeET);
+        stepET = (EditText) findViewById(R.id.stepET);
         addIngredientBtn = (Button) findViewById(R.id.addIngredientBtn);
         ingredientsTV = (TextView) findViewById(R.id.ingredientsTV);
         addStepsActitivyBtn = (Button) findViewById(R.id.addStepsActivityBtn);
+
 
         final Button button = findViewById(R.id.finishBtn);
         button.setOnClickListener(new View.OnClickListener() {
@@ -48,8 +57,10 @@ public class NewRecipeActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(titleET.getText())) {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
-                    String word = titleET.getText().toString();
-                    replyIntent.putExtra(EXTRA_REPLY, word);
+                    String title = titleET.getText().toString();
+                    String ingredient = enterIngredientET.getText().toString();
+                    replyIntent.putExtra(EXTRA_TITLE, title);
+                    //replyIntent.putExtra(EXTRA_INGREDIENT, ingredient);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();

@@ -19,9 +19,9 @@ public class RatingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_rating);
+        //setContentView(R.layout.activity_rating);
 
-        enterRateEt = (EditText) findViewById(R.id.enterRateET);
+        //enterRateEt = (EditText) findViewById(R.id.enterRateET);
         rating = 0;
 
     }

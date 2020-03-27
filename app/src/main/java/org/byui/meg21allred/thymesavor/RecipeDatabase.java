@@ -29,6 +29,7 @@ public abstract class RecipeDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             RecipeDatabase.class, "recipe_database")
+                            /*.fallbackToDestructiveMigration()*/
                             .addCallback(RecipeDatabaseCallback)
                             .build();
                 }

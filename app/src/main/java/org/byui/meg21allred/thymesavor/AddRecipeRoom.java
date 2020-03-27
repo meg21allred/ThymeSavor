@@ -1,9 +1,11 @@
 package org.byui.meg21allred.thymesavor;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,6 +44,19 @@ public class AddRecipeRoom extends AppCompatActivity {
             }
         });
 
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                recipeViewModel.delete(adapter.getRecipeAt(viewHolder.getAdapterPosition()));
+            }
+        }).attachToRecyclerView(recyclerView);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +71,12 @@ public class AddRecipeRoom extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_RECIPE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Recipe recipe = new Recipe(data.getStringExtra(NewRecipeActivity.EXTRA_REPLY));
+           /* String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
+            String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
+
+            Recipe recipe = new Recipe(title);
+            recipeViewModel.insert(recipe);*/
+            Recipe recipe = new Recipe(data.getStringExtra(NewRecipeActivity.EXTRA_TITLE));
             recipeViewModel.insert(recipe);
         } else {
             System.out.println("empty, not saved");
