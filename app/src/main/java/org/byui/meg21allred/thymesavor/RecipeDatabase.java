@@ -1,6 +1,7 @@
 package org.byui.meg21allred.thymesavor;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 import androidx.room.Dao;
@@ -29,7 +30,7 @@ public abstract class RecipeDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             RecipeDatabase.class, "recipe_database")
-                            /*.fallbackToDestructiveMigration()*/
+                            .fallbackToDestructiveMigration()
                             .addCallback(RecipeDatabaseCallback)
                             .build();
                 }
@@ -57,4 +58,41 @@ public abstract class RecipeDatabase extends RoomDatabase {
             });
         }
     };
+
+    /*private static RecipeDatabase instance;
+
+    public abstract RecipeDao recipeDao();
+
+    public static synchronized RecipeDatabase getInstance(Context context) {
+        if (instance == null) {
+            instance = Room.databaseBuilder(context.getApplicationContext(),
+                    RecipeDatabase.class, "recipe_database")
+                    .fallbackToDestructiveMigration()
+                    .addCallback(roomCallback)
+                    .build();
+        }
+        return instance;
+    }
+
+    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            new PopulateDbAsyncTask(instance).execute();
+        }
+    };
+
+    private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
+        private RecipeDao recipeDao;
+
+        private PopulateDbAsyncTask(RecipeDatabase db) {
+            recipeDao = db.recipeDao();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            RecipeDao.insert(new Recipe("Title"));
+            return null;
+        }
+    }*/
 }

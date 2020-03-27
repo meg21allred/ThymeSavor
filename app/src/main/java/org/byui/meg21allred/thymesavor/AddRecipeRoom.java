@@ -23,6 +23,7 @@ public class AddRecipeRoom extends AppCompatActivity {
 
     private RecipeViewModel recipeViewModel;
     public static final int NEW_RECIPE_ACTIVITY_REQUEST_CODE = 1;
+    public static final int EDIT_RECIPE_ACTIVITY_REQUEST_CODE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,19 @@ public class AddRecipeRoom extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
+        adapter.setOnItemClickListener(new RecipeListAdapter.ClickListener() {
+            @Override
+            public void onItemClick(Recipe recipe) {
+                Intent intent = new Intent(AddRecipeRoom.this, NewRecipeActivity.class);
+                intent.putExtra(NewRecipeActivity.EXTRA_ID, recipe.getId());
+                intent.putExtra(NewRecipeActivity.EXTRA_TITLE, recipe.getTitle());
+                //intent.putExtra(NewRecipeActivity.EXTRA_INGREDIENT, recipe.getIngredient());
+                //do the same thing for all the editable fields
+                startActivityForResult(intent, EDIT_RECIPE_ACTIVITY_REQUEST_CODE);
+
+            }
+        });
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,13 +85,25 @@ public class AddRecipeRoom extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_RECIPE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-           /* String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
-            String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
+           String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
+           //String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
 
-            Recipe recipe = new Recipe(title);
-            recipeViewModel.insert(recipe);*/
-            Recipe recipe = new Recipe(data.getStringExtra(NewRecipeActivity.EXTRA_TITLE));
+            Recipe recipe = new Recipe(title/*, ingredient*/);
             recipeViewModel.insert(recipe);
+        } else if (requestCode == EDIT_RECIPE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            int id = data.getIntExtra(NewRecipeActivity.EXTRA_ID, -1);
+
+            if (id == -1) {
+                System.out.println("Recipe can't be updated");
+                return;
+            }
+
+            String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
+            String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
+            Recipe recipe = new Recipe(title/*, ingredient*/);
+            recipe.setId(id);
+            recipeViewModel.update(recipe);
+
         } else {
             System.out.println("empty, not saved");
         }

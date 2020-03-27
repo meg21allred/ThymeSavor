@@ -22,11 +22,27 @@ public class RecipeRepository {
         return allRecipes;
     }
 
-    void insert(Recipe recipe) {
+   void insert(Recipe recipe) {
         RecipeDatabase.databaseWriteExecutor.execute(() -> {
             recipeDao.insert(recipe);
         });
     }
+
+    void update(Recipe recipe) {
+        RecipeDatabase.databaseWriteExecutor.execute(() -> {
+            recipeDao.update(recipe);
+        });
+    }
+
+    void delete(Recipe recipe) {
+        RecipeDatabase.databaseWriteExecutor.execute(() -> {
+            recipeDao.delete(recipe);
+        });
+    }
+
+   /*public void insert(Recipe recipe) {
+       new InsertRecipeAsyncTask(recipeDao).execute(recipe);
+   }
 
     public void update(Recipe recipe) {
         new UpdateRecipeAsyncTask(recipeDao).execute(recipe);
@@ -34,13 +50,13 @@ public class RecipeRepository {
 
     public void delete(Recipe recipe) {
         new DeleteRecipeAsyncTask(recipeDao).execute(recipe);
-    }
+    }*/
 
     /*public LiveData<List<Recipe>>  getAllRecipes() {
         return allRecipes;
     }*/
 
-    private static class UpdateRecipeAsyncTask extends AsyncTask<Recipe, Void, Void> {
+    /*private static class UpdateRecipeAsyncTask extends AsyncTask<Recipe, Void, Void> {
         private RecipeDao RecipeDao;
 
         private UpdateRecipeAsyncTask(RecipeDao recipeDao) {
@@ -67,4 +83,18 @@ public class RecipeRepository {
             return null;
         }
     }
+
+    private static class InsertRecipeAsyncTask extends AsyncTask<Recipe, Void, Void> {
+        private RecipeDao recipeDao;
+
+        private InsertRecipeAsyncTask(RecipeDao recipeDao) {
+            this.recipeDao = recipeDao;
+        }
+
+        @Override
+        protected Void doInBackground(Recipe... recipes) {
+            recipeDao.delete(recipes[0]);
+            return null;
+        }
+    }*/
 }

@@ -17,7 +17,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     private final LayoutInflater inflater;
     private List<Recipe> recipes; // Cached copy of recipes
 
-    private static ClickListener clickListener;
+    private static ClickListener listener;
 
     RecipeListAdapter(Context context) {inflater = LayoutInflater.from(context);}
 
@@ -69,14 +69,24 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
             recipeItemView = itemView.findViewById(R.id.textView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(recipes.get(position));
+                    }
+                }
+            });
         }
     }
 
-    public void setOnItemClickListener(ClickListener clickListener) {
-        RecipeListAdapter.clickListener = clickListener;
+    public void setOnItemClickListener(ClickListener listener) {
+        this.listener = listener;
     }
 
     public interface ClickListener {
-        void onItemClick(View v, int position);
+        void onItemClick(Recipe recipe);
     }
 }
