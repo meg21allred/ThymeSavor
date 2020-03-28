@@ -52,7 +52,7 @@ public abstract class RecipeDatabase extends RoomDatabase {
                 RecipeDao dao = INSTANCE.recipeDao();
                 dao.deleteAll();
 
-                Recipe recipe = new Recipe("Mac and Cheese");
+                Recipe recipe = new Recipe("Mac and Cheese", "Cheese");
                 dao.insert(recipe);
 
             });

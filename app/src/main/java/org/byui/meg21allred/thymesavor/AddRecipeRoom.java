@@ -86,9 +86,9 @@ public class AddRecipeRoom extends AppCompatActivity {
 
         if (requestCode == NEW_RECIPE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
            String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
-           //String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
+           String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
 
-            Recipe recipe = new Recipe(title/*, ingredient*/);
+            Recipe recipe = new Recipe(title, ingredient);
             recipeViewModel.insert(recipe);
         } else if (requestCode == EDIT_RECIPE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             int id = data.getIntExtra(NewRecipeActivity.EXTRA_ID, -1);
@@ -100,7 +100,7 @@ public class AddRecipeRoom extends AppCompatActivity {
 
             String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
             String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
-            Recipe recipe = new Recipe(title/*, ingredient*/);
+            Recipe recipe = new Recipe(title, ingredient);
             recipe.setId(id);
             recipeViewModel.update(recipe);
 

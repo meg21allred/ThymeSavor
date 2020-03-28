@@ -15,7 +15,7 @@ public class Recipe {
     @NonNull
     @ColumnInfo(name = "title")
     private String title = "title";
-    /*@NonNull
+    @NonNull
     @ColumnInfo(name = "ingredient")
     private String ingredient = "ingredient";
     /*private double amount;
@@ -34,16 +34,16 @@ public class Recipe {
         this.step = step;
     }*/
 
-    public Recipe(@NonNull String title/*, String ingredient*/) {
+    public Recipe(@NonNull String title, String ingredient) {
         this.title = title;
-        //this.ingredient = ingredient;
+        this.ingredient = ingredient;
     }
 
     public String getTitle() {
         return title;
     }
 
-    /*public String getIngredient() {
+    public String getIngredient() {
         return ingredient;
     }
 

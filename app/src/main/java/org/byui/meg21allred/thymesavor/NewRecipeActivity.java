@@ -51,11 +51,11 @@ public class NewRecipeActivity extends AppCompatActivity {
         ingredientsTV = (TextView) findViewById(R.id.ingredientsTV);
         addStepsActitivyBtn = (Button) findViewById(R.id.addStepsActivityBtn);
 
-        Intent intent = new Intent();
+        Intent intent = getIntent();
 
         if(intent.hasExtra(EXTRA_ID)) {
             titleET.setText(intent.getStringExtra(EXTRA_TITLE));
-            //enterIngredientET.setText(intent.getStringExtra(EXTRA_INGREDIENT));
+            enterIngredientET.setText(intent.getStringExtra(EXTRA_INGREDIENT));
             //add the rest of the edit texts fields here
         }
 
@@ -69,7 +69,7 @@ public class NewRecipeActivity extends AppCompatActivity {
                     String title = titleET.getText().toString();
                     String ingredient = enterIngredientET.getText().toString();
                     replyIntent.putExtra(EXTRA_TITLE, title);
-                    //replyIntent.putExtra(EXTRA_INGREDIENT, ingredient);
+                    replyIntent.putExtra(EXTRA_INGREDIENT, ingredient);
                     //same format for the rest of the edit texts
 
                     int id = getIntent().getIntExtra(EXTRA_ID, -1);
