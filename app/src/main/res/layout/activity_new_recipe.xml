@@ -45,7 +45,7 @@
         android:ems="10"
         android:hint="Enter ingredient..."
         android:inputType="textPersonName"
-        android:textColor="#A19999"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleET" />
@@ -85,13 +85,13 @@
         android:id="@+id/addStepsTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="28dp"
         android:text="Ready to add steps?"
         android:textColor="#107020"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintHorizontal_bias="0.729"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stepET" />
 
@@ -106,7 +106,7 @@
         android:ems="10"
         android:hint="Enter amount..."
         android:inputType="textPersonName"
-        android:textColor="#A19999"
+        android:textColor="#000000"
         app:layout_constraintEnd_toStartOf="@+id/typeET"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +122,7 @@
         android:ems="10"
         android:hint="Enter type..."
         android:inputType="textPersonName"
-        android:textColor="#A19999"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterIngredientET" />
 
@@ -158,18 +158,31 @@
         app:layout_constraintTop_toBottomOf="@+id/addIngredientBtn" />
 
     <Button
-        android:id="@+id/finishBtn"
+        android:id="@+id/saveBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/round_button"
-        android:onClick="finishRecipe"
-        android:text="Finish"
+        android:text="SAVE"
         android:textColor="#107020"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintTop_toBottomOf="@+id/addStepsActivityBtn"
+        app:layout_constraintVertical_bias="0.619" />
+
+    <Button
+        android:id="@+id/displayBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Display"
+        android:textColor="#107020"
+        android:background="@drawable/round_button"
+        android:onClick="displayRecipe"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/saveBtn"
+        app:layout_constraintHorizontal_bias="0.857"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addStepsActivityBtn"
-        app:layout_constraintVertical_bias="0.846" />
+        app:layout_constraintVertical_bias="0.619" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

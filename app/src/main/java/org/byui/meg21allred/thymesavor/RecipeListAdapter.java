@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -68,7 +67,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
-            recipeItemView = itemView.findViewById(R.id.textView);
+            recipeItemView = itemView.findViewById(R.id.recipeTV);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

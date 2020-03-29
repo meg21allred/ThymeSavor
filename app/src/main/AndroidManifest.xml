@@ -13,9 +13,7 @@
         <activity android:name=".TimerActivity" />
         <activity android:name=".FinishRecipe" />
         <activity android:name=".DisplaySteps" />
-        <activity android:name=".SearchRecipes" />
         <activity android:name=".DisplayRecipeActivity" />
-        <activity android:name=".AddStepsActivity" />
         <activity android:name=".NewRecipeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

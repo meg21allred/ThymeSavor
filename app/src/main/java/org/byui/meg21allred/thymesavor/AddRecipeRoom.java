@@ -48,7 +48,9 @@ public class AddRecipeRoom extends AppCompatActivity {
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            public boolean onMove(@NonNull RecyclerView recyclerView,
+                                  @NonNull RecyclerView.ViewHolder viewHolder,
+                                  @NonNull RecyclerView.ViewHolder target) {
                 return false;
             }
 
@@ -64,8 +66,11 @@ public class AddRecipeRoom extends AppCompatActivity {
                 Intent intent = new Intent(AddRecipeRoom.this, NewRecipeActivity.class);
                 intent.putExtra(NewRecipeActivity.EXTRA_ID, recipe.getId());
                 intent.putExtra(NewRecipeActivity.EXTRA_TITLE, recipe.getTitle());
-                //intent.putExtra(NewRecipeActivity.EXTRA_INGREDIENT, recipe.getIngredient());
-                //do the same thing for all the editable fields
+                intent.putExtra(NewRecipeActivity.EXTRA_INGREDIENT, recipe.getIngredient());
+                intent.putExtra(NewRecipeActivity.EXTRA_AMOUNT, recipe.getAmount());
+                intent.putExtra(NewRecipeActivity.EXTRA_TYPE, recipe.getType());
+                intent.putExtra(NewRecipeActivity.EXTRA_STEP, recipe.getStep());
+
                 startActivityForResult(intent, EDIT_RECIPE_ACTIVITY_REQUEST_CODE);
 
             }
@@ -85,10 +90,13 @@ public class AddRecipeRoom extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_RECIPE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-           String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
-           String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
+            String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
+            String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
+            String amount = data.getStringExtra(NewRecipeActivity.EXTRA_AMOUNT);
+            String type = data.getStringExtra(NewRecipeActivity.EXTRA_TYPE);
+            String step = data.getStringExtra(NewRecipeActivity.EXTRA_STEP);
 
-            Recipe recipe = new Recipe(title, ingredient);
+            Recipe recipe = new Recipe(title, ingredient, amount, type, step);
             recipeViewModel.insert(recipe);
         } else if (requestCode == EDIT_RECIPE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             int id = data.getIntExtra(NewRecipeActivity.EXTRA_ID, -1);
@@ -100,7 +108,11 @@ public class AddRecipeRoom extends AppCompatActivity {
 
             String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
             String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
-            Recipe recipe = new Recipe(title, ingredient);
+            String amount = data.getStringExtra(NewRecipeActivity.EXTRA_AMOUNT);
+            String type = data.getStringExtra(NewRecipeActivity.EXTRA_TYPE);
+            String step = data.getStringExtra(NewRecipeActivity.EXTRA_STEP);
+
+            Recipe recipe = new Recipe(title, ingredient, amount, type, step);
             recipe.setId(id);
             recipeViewModel.update(recipe);
 

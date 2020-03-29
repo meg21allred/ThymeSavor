@@ -16,7 +16,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     Button enterNewRecipeBtn;
-    Button loadReciptBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         enterNewRecipeBtn = (Button) findViewById(R.id.enterNewRecipeBtn);
-        loadReciptBtn = (Button) findViewById(R.id.loadRecipeBtn);
+
     }
 
     public void newRecipe(View v) {
@@ -39,10 +39,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void loadRecipe(View v) {loadRecipeActivity();}
-
-    public void loadRecipeActivity() {
-        Intent intent = new Intent(this, SearchRecipes.class);
-        startActivity(intent);
-    }
 }
