@@ -1,13 +1,11 @@
 package org.byui.meg21allred.thymesavor;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class RatingActivity extends AppCompatActivity {
 
@@ -19,9 +17,9 @@ public class RatingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
-        //setContentView(R.layout.activity_rating);
+        setContentView(R.layout.activity_rating);
 
-        //enterRateEt = (EditText) findViewById(R.id.enterRateET);
+        enterRateEt = (EditText) findViewById(R.id.enterRateET);
         rating = 0;
 
     }
@@ -34,4 +32,7 @@ public class RatingActivity extends AppCompatActivity {
     public void clearMessage(View view) {
         enterRateEt.setText("");
     }
+
+
+
 }
