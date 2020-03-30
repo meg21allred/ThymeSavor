@@ -13,6 +13,7 @@ public class FinishRecipe extends AppCompatActivity {
 
     Button mainMenuBtn;
     Button timerBtn;
+    Button ratingBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class FinishRecipe extends AppCompatActivity {
 
         mainMenuBtn = (Button) findViewById(R.id.mainMenuBtn);
         timerBtn = (Button) findViewById(R.id.timerBtn);
+        ratingBtn = (Button) findViewById(R.id.ratingBtn);
     }
 
     public void mainMenu(View view) {goToMainActivity();}
@@ -36,6 +38,13 @@ public class FinishRecipe extends AppCompatActivity {
 
     public void goToTimerActivity() {
         Intent intent = new Intent(this, TimerActivity.class);
+        startActivity(intent);
+    }
+
+    public void ratingBtn(View view) {goToRatingActivity();}
+
+    public void goToRatingActivity() {
+        Intent intent = new Intent(this, RatingActivity.class);
         startActivity(intent);
     }
 
