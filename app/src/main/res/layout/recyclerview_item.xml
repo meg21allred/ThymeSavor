@@ -4,9 +4,10 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/recipeTV"
         style="@style/recipe_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_orange_light" />
+        android:background="#107020"
+        android:textColor="#ffffff"/>
 </LinearLayout>

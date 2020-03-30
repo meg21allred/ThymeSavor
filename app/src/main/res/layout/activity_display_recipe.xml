@@ -12,23 +12,26 @@
         android:layout_height="830dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.505"
         app:srcCompat="@drawable/ic_thyme_savor_background" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/recipeTV"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="28dp"
         android:background="@android:color/white"
         android:text="Ingredients  2 cups all-purpose flour ½ cup bread flour 1 teaspoon salt 1 teaspoon baking powder 1 teaspoon baking soda 1 cup butter, softened 1½ cups packed light-brown sugar ¼ cup granulated sugar 2 large eggs, at room temperature 2 teaspoons vanilla extract      2 cups semisweet chocolate chips  Cups - Metric Instructions      Sift the flour, bread flour, salt, baking soda, and baking powder together into a large mixing bowl.     In a large mixing bowl. beat the butter, brown sugar and granulated sugar in until fluffy.     Mix in the eggs one at a time, then add the vanilla.     Mix in the flour mixture and mix until combined.  Stir in the chocolate chips by hand.  Shape into a log in plastic wrap and chill until firm 30 minutes – overnight.     Preheat the oven to 375 degrees F/190C.       Cut the chilled dough into 1/2 inch/10mm thick slices.  Place the slices onto a baking sheet lined with baking paper or nonstick foil     Bake until the cookies are golden brown around the edges but soft in the middle, about 10 - 12 minutes.     Remove the cookies from the oven and let cool 10 minutes on the baking sheets, then transfer to racks to cool completely. "
         app:layout_constraintBottom_toTopOf="@+id/startCookingBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recipeImageIV" />
 
     <TextView
         android:id="@+id/yourRecipeTV"
@@ -45,13 +48,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/recipeImageIV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/addImageBtn"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <Button
@@ -71,11 +75,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addImageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Add Image"
+        android:textColor="#107020"
+        android:background="@drawable/round_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yourRecipeTV" />

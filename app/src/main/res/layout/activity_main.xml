@@ -45,34 +45,16 @@
         android:layout_marginEnd="24dp"
         android:background="@android:color/white"
         android:fontFamily="@font/merriweather_light"
-        android:text="Enter New Recipe"
-        android:textColor="#205114"
-        android:textSize="30sp"
-        android:textStyle="bold"
         android:onClick="newRecipe"
-        app:layout_constraintBottom_toTopOf="@+id/loadRecipeBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        app:layout_constraintVertical_bias="0.946" />
-
-    <Button
-        android:id="@+id/loadRecipeBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
-        android:background="@android:color/white"
-        android:fontFamily="@font/merriweather_light"
-        android:text="Load Recipe"
+        android:text="Enter "
         android:textColor="#205114"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:onClick="loadRecipe"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        app:layout_constraintVertical_bias="0.866" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
