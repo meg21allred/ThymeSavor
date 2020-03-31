@@ -8,13 +8,16 @@ import androidx.room.Dao;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities = {Recipe.class}, version = 1, exportSchema = false)
+@TypeConverters({Converters.class})
 public abstract class RecipeDatabase extends RoomDatabase {
 
     public abstract RecipeDao recipeDao();
@@ -44,6 +47,11 @@ public abstract class RecipeDatabase extends RoomDatabase {
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
 
+            ArrayList<String> ingredient = new ArrayList<>();
+
+            ingredient.add("cheese");
+            ingredient.add("Bread");
+            //String ingredient = "Mac and Cheese";
             // If you want to keep data through app restarts,
             // comment out the following block
             databaseWriteExecutor.execute(() -> {
@@ -52,47 +60,12 @@ public abstract class RecipeDatabase extends RoomDatabase {
                 RecipeDao dao = INSTANCE.recipeDao();
                 dao.deleteAll();
 
-                Recipe recipe = new Recipe("Mac and Cheese", "Cheese", "1", "Package", "Open Box");
+                Recipe recipe = new Recipe("Mac and Cheese", ingredient, "1", "Package", "Open Box");
                 dao.insert(recipe);
 
             });
         }
     };
 
-    /*private static RecipeDatabase instance;
 
-    public abstract RecipeDao recipeDao();
-
-    public static synchronized RecipeDatabase getInstance(Context context) {
-        if (instance == null) {
-            instance = Room.databaseBuilder(context.getApplicationContext(),
-                    RecipeDatabase.class, "recipe_database")
-                    .fallbackToDestructiveMigration()
-                    .addCallback(roomCallback)
-                    .build();
-        }
-        return instance;
-    }
-
-    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-            new PopulateDbAsyncTask(instance).execute();
-        }
-    };
-
-    private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-        private RecipeDao recipeDao;
-
-        private PopulateDbAsyncTask(RecipeDatabase db) {
-            recipeDao = db.recipeDao();
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            RecipeDao.insert(new Recipe("Title"));
-            return null;
-        }
-    }*/
 }

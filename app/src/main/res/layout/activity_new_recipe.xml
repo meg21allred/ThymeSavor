@@ -62,6 +62,7 @@
         android:text="+ ingredient"
         android:textColor="#107020"
         android:textSize="24sp"
+        android:onClick="addIngredient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

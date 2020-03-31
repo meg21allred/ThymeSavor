@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AddRecipeRoom extends AppCompatActivity {
@@ -69,7 +70,7 @@ public class AddRecipeRoom extends AppCompatActivity {
                 Intent intent = new Intent(AddRecipeRoom.this, NewRecipeActivity.class);
                 intent.putExtra(NewRecipeActivity.EXTRA_ID, recipe.getId());
                 intent.putExtra(NewRecipeActivity.EXTRA_TITLE, recipe.getTitle());
-                intent.putExtra(NewRecipeActivity.EXTRA_INGREDIENT, recipe.getIngredient());
+                intent.putStringArrayListExtra(NewRecipeActivity.EXTRA_INGREDIENT, recipe.getIngredient());
                 intent.putExtra(NewRecipeActivity.EXTRA_AMOUNT, recipe.getAmount());
                 intent.putExtra(NewRecipeActivity.EXTRA_TYPE, recipe.getType());
                 intent.putExtra(NewRecipeActivity.EXTRA_STEP, recipe.getStep());
@@ -94,7 +95,8 @@ public class AddRecipeRoom extends AppCompatActivity {
 
         if (requestCode == NEW_RECIPE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
-            String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
+            ArrayList<String> ingredient = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_INGREDIENT);
+            //String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
             String amount = data.getStringExtra(NewRecipeActivity.EXTRA_AMOUNT);
             String type = data.getStringExtra(NewRecipeActivity.EXTRA_TYPE);
             String step = data.getStringExtra(NewRecipeActivity.EXTRA_STEP);
@@ -110,7 +112,8 @@ public class AddRecipeRoom extends AppCompatActivity {
             }
 
             String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
-            String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
+            ArrayList<String> ingredient = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_INGREDIENT);
+            //String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
             String amount = data.getStringExtra(NewRecipeActivity.EXTRA_AMOUNT);
             String type = data.getStringExtra(NewRecipeActivity.EXTRA_TYPE);
             String step = data.getStringExtra(NewRecipeActivity.EXTRA_STEP);
