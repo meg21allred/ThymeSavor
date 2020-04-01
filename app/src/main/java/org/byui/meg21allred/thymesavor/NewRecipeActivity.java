@@ -68,9 +68,12 @@ public class NewRecipeActivity extends AppCompatActivity {
             titleET.setText(intent.getStringExtra(EXTRA_TITLE));
             //enterIngredientET.setText(intent.getStringExtra(EXTRA_INGREDIENT));
             recipe.setIngredient(intent.getStringArrayListExtra(EXTRA_INGREDIENT));
-            amountET.setText(intent.getStringExtra(EXTRA_AMOUNT));
-            typeET.setText(intent.getStringExtra(EXTRA_TYPE));
-            stepET.setText(intent.getStringExtra(EXTRA_STEP));
+           // amountET.setText(intent.getStringExtra(EXTRA_AMOUNT));
+            recipe.setAmount(intent.getStringArrayListExtra(EXTRA_AMOUNT));
+            //typeET.setText(intent.getStringExtra(EXTRA_TYPE));
+            recipe.setType(intent.getStringArrayListExtra(EXTRA_TYPE));
+            //stepET.setText(intent.getStringExtra(EXTRA_STEP));
+            recipe.setStep(intent.getStringArrayListExtra(EXTRA_STEP));
 
         }
 
@@ -84,15 +87,21 @@ public class NewRecipeActivity extends AppCompatActivity {
                     String title = titleET.getText().toString();
                     //String ingredient = enterIngredientET.getText().toString();
                     ArrayList<String> ingredient = recipe.getIngredient();
-                    String amount = amountET.getText().toString();
-                    String type = typeET.getText().toString();
-                    String step = stepET.getText().toString();
+                    //String amount = amountET.getText().toString();
+                    ArrayList<String> amount = recipe.getAmount();
+                    //String type = typeET.getText().toString();
+                    ArrayList<String> type = recipe.getType();
+                    //String step = stepET.getText().toString();
+                    ArrayList<String> step = recipe.getStep();
                     replyIntent.putExtra(EXTRA_TITLE, title);
                     replyIntent.putStringArrayListExtra(EXTRA_INGREDIENT, ingredient);
                     //replyIntent.putExtra(EXTRA_INGREDIENT, ingredient);
-                    replyIntent.putExtra(EXTRA_AMOUNT, amount);
-                    replyIntent.putExtra(EXTRA_TYPE, type);
-                    replyIntent.putExtra(EXTRA_STEP, step);
+                    //replyIntent.putExtra(EXTRA_AMOUNT, amount);
+                    replyIntent.putStringArrayListExtra(EXTRA_AMOUNT, amount);
+                    //replyIntent.putExtra(EXTRA_TYPE, type);
+                    replyIntent.putStringArrayListExtra(EXTRA_TYPE, type);
+                    //replyIntent.putExtra(EXTRA_STEP, step);
+                    replyIntent.putStringArrayListExtra(EXTRA_STEP, step);
                     //same format for the rest of the edit texts
 
                     int id = getIntent().getIntExtra(EXTRA_ID, -1);
@@ -123,15 +132,21 @@ public class NewRecipeActivity extends AppCompatActivity {
             String title = titleET.getText().toString();
             //String ingredient = enterIngredientET.getText().toString();
             ArrayList<String> ingredient = recipe.getIngredient();
-            String amount = amountET.getText().toString();
-            String type = typeET.getText().toString();
-            String step = stepET.getText().toString();
+            //String amount = amountET.getText().toString();
+            ArrayList<String> amount = recipe.getAmount();
+            //String type = typeET.getText().toString();
+            ArrayList<String> type = recipe.getType();
+            //String step = stepET.getText().toString();
+            ArrayList<String> step = recipe.getStep();
             replyIntent.putExtra(EXTRA_TITLE, title);
             replyIntent.putStringArrayListExtra(EXTRA_INGREDIENT, ingredient);
             //replyIntent.putExtra(EXTRA_INGREDIENT, ingredient)
-            replyIntent.putExtra(EXTRA_AMOUNT, amount);
-            replyIntent.putExtra(EXTRA_TYPE, type);
-            replyIntent.putExtra(EXTRA_STEP, step);
+            //replyIntent.putExtra(EXTRA_AMOUNT, amount);
+            replyIntent.putStringArrayListExtra(EXTRA_AMOUNT, amount);
+            //replyIntent.putExtra(EXTRA_TYPE, type);
+            replyIntent.putStringArrayListExtra(EXTRA_TYPE, type);
+            //replyIntent.putExtra(EXTRA_STEP, step);
+            replyIntent.putStringArrayListExtra(EXTRA_STEP, step);
 
             int id = getIntent().getIntExtra(EXTRA_ID, -1);
             if (id != -1) {
@@ -150,9 +165,30 @@ public class NewRecipeActivity extends AppCompatActivity {
     }
     public void addIngredientToRecipe() {
 
+        //add ingredient to recipe
         String addIngredient = enterIngredientET.getText().toString();
-        recipe.getIngredient().add(addIngredient);   // would this work to add the ingredient if I changed String ingredient
-                                                // to ArrayList<String> ingredient?
+        String addAmount = amountET.getText().toString();
+        String addType = typeET.getText().toString();
+        recipe.getIngredient().add(addIngredient);
+        recipe.getAmount().add(addAmount);
+        recipe.getType().add(addType);
+        enterIngredientET.setText("");
+        amountET.setText("");
+        typeET.setText("");
+
+    }
+
+    public void addStep(View view) {
+        addStepToRecipe();
+
+    }
+    public void addStepToRecipe() {
+
+        //add step to recipe
+        String addStep = stepET.getText().toString();
+        recipe.getStep().add(addStep);
+        stepET.setText("");
+
 
     }
 }

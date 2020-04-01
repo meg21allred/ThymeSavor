@@ -18,20 +18,34 @@
         app:layout_constraintVertical_bias="0.505"
         app:srcCompat="@drawable/ic_thyme_savor_background" />
 
-    <TextView
-        android:id="@+id/recipeTV"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="28dp"
-        android:background="@android:color/white"
-        android:text="Ingredients  2 cups all-purpose flour ½ cup bread flour 1 teaspoon salt 1 teaspoon baking powder 1 teaspoon baking soda 1 cup butter, softened 1½ cups packed light-brown sugar ¼ cup granulated sugar 2 large eggs, at room temperature 2 teaspoons vanilla extract      2 cups semisweet chocolate chips  Cups - Metric Instructions      Sift the flour, bread flour, salt, baking soda, and baking powder together into a large mixing bowl.     In a large mixing bowl. beat the butter, brown sugar and granulated sugar in until fluffy.     Mix in the eggs one at a time, then add the vanilla.     Mix in the flour mixture and mix until combined.  Stir in the chocolate chips by hand.  Shape into a log in plastic wrap and chill until firm 30 minutes – overnight.     Preheat the oven to 375 degrees F/190C.       Cut the chilled dough into 1/2 inch/10mm thick slices.  Place the slices onto a baking sheet lined with baking paper or nonstick foil     Bake until the cookies are golden brown around the edges but soft in the middle, about 10 - 12 minutes.     Remove the cookies from the oven and let cool 10 minutes on the baking sheets, then transfer to racks to cool completely. "
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="270dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/startCookingBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipeImageIV" />
+        app:layout_constraintTop_toBottomOf="@+id/recipeImageIV"
+        app:layout_constraintVertical_bias="0.232">
+
+
+        <TextView
+            android:id="@+id/recipeTV"
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:background="@android:color/white"
+            android:text="Your Recipe goes here..."
+            android:textColor="#107020"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="117dp"
+            tools:layout_editor_absoluteY="323dp" />
+
+
+    </ScrollView>
 
     <TextView
         android:id="@+id/yourRecipeTV"
@@ -49,11 +63,11 @@
 
     <ImageView
         android:id="@+id/recipeImageIV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_width="182dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addImageBtn"
         app:srcCompat="@drawable/ic_launcher_foreground" />
@@ -64,14 +78,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_button"
+        android:onClick="displaySteps"
         android:text="Start Cooking"
         android:textColor="#107020"
         android:textSize="24sp"
-        android:background="@drawable/round_button"
-        android:onClick="displaySteps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button

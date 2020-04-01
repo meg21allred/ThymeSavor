@@ -48,9 +48,28 @@ public abstract class RecipeDatabase extends RoomDatabase {
             super.onOpen(db);
 
             ArrayList<String> ingredient = new ArrayList<>();
+            ArrayList<String> amount = new ArrayList<>();
+            ArrayList<String> type = new ArrayList<>();
+            ArrayList<String> step = new ArrayList<>();
 
-            ingredient.add("cheese");
-            ingredient.add("Bread");
+            ingredient.add("Mac and Cheese");
+            ingredient.add("Water");
+            ingredient.add("Salt and Pepper");
+            ingredient.add("Milk");
+            amount.add("1");
+            amount.add("8");
+            amount.add("1/2");
+            amount.add("1/4");
+            type.add("Box");
+            type.add("cups");
+            type.add("type");
+            type.add("cup");
+            step.add("Bring Water to a boil");
+            step.add("Open box and dump pasta contents into boiling water. Reserve cheese packet.");
+            step.add("Boil for 8 minutes until pasta is tender");
+            step.add("Add contents of cheese packet and stir in milk until cheese desloves");
+            step.add("Enjoy!");
+
             //String ingredient = "Mac and Cheese";
             // If you want to keep data through app restarts,
             // comment out the following block
@@ -60,7 +79,7 @@ public abstract class RecipeDatabase extends RoomDatabase {
                 RecipeDao dao = INSTANCE.recipeDao();
                 dao.deleteAll();
 
-                Recipe recipe = new Recipe("Mac and Cheese", ingredient, "1", "Package", "Open Box");
+                Recipe recipe = new Recipe("Mac and Cheese", ingredient, amount, type, step);
                 dao.insert(recipe);
 
             });

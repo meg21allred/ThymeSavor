@@ -71,9 +71,9 @@ public class AddRecipeRoom extends AppCompatActivity {
                 intent.putExtra(NewRecipeActivity.EXTRA_ID, recipe.getId());
                 intent.putExtra(NewRecipeActivity.EXTRA_TITLE, recipe.getTitle());
                 intent.putStringArrayListExtra(NewRecipeActivity.EXTRA_INGREDIENT, recipe.getIngredient());
-                intent.putExtra(NewRecipeActivity.EXTRA_AMOUNT, recipe.getAmount());
-                intent.putExtra(NewRecipeActivity.EXTRA_TYPE, recipe.getType());
-                intent.putExtra(NewRecipeActivity.EXTRA_STEP, recipe.getStep());
+                intent.putStringArrayListExtra(NewRecipeActivity.EXTRA_AMOUNT, recipe.getAmount());
+                intent.putStringArrayListExtra(NewRecipeActivity.EXTRA_TYPE, recipe.getType());
+                intent.putStringArrayListExtra(NewRecipeActivity.EXTRA_STEP, recipe.getStep());
 
                 startActivityForResult(intent, EDIT_RECIPE_ACTIVITY_REQUEST_CODE);
 
@@ -97,9 +97,12 @@ public class AddRecipeRoom extends AppCompatActivity {
             String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
             ArrayList<String> ingredient = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_INGREDIENT);
             //String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
-            String amount = data.getStringExtra(NewRecipeActivity.EXTRA_AMOUNT);
-            String type = data.getStringExtra(NewRecipeActivity.EXTRA_TYPE);
-            String step = data.getStringExtra(NewRecipeActivity.EXTRA_STEP);
+            //String amount = data.getStringExtra(NewRecipeActivity.EXTRA_AMOUNT);
+            ArrayList<String> amount = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_AMOUNT);
+            //String type = data.getStringExtra(NewRecipeActivity.EXTRA_TYPE);
+            ArrayList<String> type = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_TYPE);
+            //String step = data.getStringExtra(NewRecipeActivity.EXTRA_STEP);
+            ArrayList<String> step = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_STEP);
 
             Recipe recipe = new Recipe(title, ingredient, amount, type, step);
             recipeViewModel.insert(recipe);
@@ -114,9 +117,12 @@ public class AddRecipeRoom extends AppCompatActivity {
             String title = data.getStringExtra(NewRecipeActivity.EXTRA_TITLE);
             ArrayList<String> ingredient = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_INGREDIENT);
             //String ingredient = data.getStringExtra(NewRecipeActivity.EXTRA_INGREDIENT);
-            String amount = data.getStringExtra(NewRecipeActivity.EXTRA_AMOUNT);
-            String type = data.getStringExtra(NewRecipeActivity.EXTRA_TYPE);
-            String step = data.getStringExtra(NewRecipeActivity.EXTRA_STEP);
+            //String amount = data.getStringExtra(NewRecipeActivity.EXTRA_AMOUNT);
+            ArrayList<String> amount = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_AMOUNT);
+           // String type = data.getStringExtra(NewRecipeActivity.EXTRA_TYPE);
+            ArrayList<String> type = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_TYPE);
+           // String step = data.getStringExtra(NewRecipeActivity.EXTRA_STEP);
+            ArrayList<String> step = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_STEP);
 
             Recipe recipe = new Recipe(title, ingredient, amount, type, step);
             recipe.setId(id);

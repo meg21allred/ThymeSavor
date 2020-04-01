@@ -77,6 +77,7 @@
         android:background="@drawable/round_green_btn"
         android:text="Add Steps"
         android:textColor="#ffffff"
+        android:onClick="addStep"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"

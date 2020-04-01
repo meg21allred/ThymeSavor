@@ -34,6 +34,7 @@ public class DisplayRecipeActivity extends AppCompatActivity {
 
             String fullRecipe = fullRecipe(intent);
             recipeTV.setText(fullRecipe);
+            fullRecipe(intent);
 
         }
 
@@ -48,17 +49,30 @@ public class DisplayRecipeActivity extends AppCompatActivity {
     }
 
     public String fullRecipe(Intent intent) {
-        String fullRecipe;
         String title = intent.getStringExtra(newRecipe.EXTRA_TITLE);
-        String amount = intent.getStringExtra(newRecipe.EXTRA_AMOUNT);
+        //String amount = intent.getStringExtra(newRecipe.EXTRA_AMOUNT);
+        ArrayList<String> amount = intent.getStringArrayListExtra(newRecipe.EXTRA_AMOUNT);
         ArrayList<String> ingredient = intent.getStringArrayListExtra(newRecipe.EXTRA_INGREDIENT);
+        ArrayList<String> type = intent.getStringArrayListExtra(newRecipe.EXTRA_TYPE);
+        ArrayList<String> step = intent.getStringArrayListExtra(newRecipe.EXTRA_STEP);
         //ArrayList<String> ingredient = new ArrayList<>();
         //String ingredient = intent.getStringExtra(newRecipe.EXTRA_INGREDIENT);
-        String type = intent.getStringExtra(newRecipe.EXTRA_TYPE);
-        String step = intent.getStringExtra(newRecipe.EXTRA_STEP);
+        //String type = intent.getStringExtra(newRecipe.EXTRA_TYPE);
+        //String step = intent.getStringExtra(newRecipe.EXTRA_STEP);
 
-        fullRecipe = title + "\n\n" + amount + " " + type + " " + ingredient + "\n\n" + step;
+        //fullRecipe = title + "\n\n" + amount + " " + type + " " + ingredient + "\n\n" + step;
         //fullRecipe = "Mac and Cheese";
+
+        String fullRecipe = title + "\n\n\n";
+        for (int i = 0; i < ingredient.size(); i++) {
+            fullRecipe += amount.get(i) + " " + type.get(i) + " " + ingredient.get(i) + "\n";
+        }
+
+        fullRecipe += "\n";
+
+        for (int i = 0; i < step.size(); i++) {
+            fullRecipe += (i+1) + ". " + step.get(i) + "\n\n";
+        }
 
         return fullRecipe;
     }
