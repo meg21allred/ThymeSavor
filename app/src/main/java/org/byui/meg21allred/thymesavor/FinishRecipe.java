@@ -3,11 +3,14 @@ package org.byui.meg21allred.thymesavor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class FinishRecipe extends AppCompatActivity {
 
@@ -25,6 +28,7 @@ public class FinishRecipe extends AppCompatActivity {
         mainMenuBtn = (Button) findViewById(R.id.mainMenuBtn);
         timerBtn = (Button) findViewById(R.id.timerBtn);
         ratingBtn = (Button) findViewById(R.id.ratingBtn);
+
     }
 
     public void mainMenu(View view) {goToMainActivity();}
