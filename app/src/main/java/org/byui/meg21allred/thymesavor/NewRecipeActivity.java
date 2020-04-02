@@ -32,6 +32,7 @@ public class NewRecipeActivity extends AppCompatActivity {
     public static final String EXTRA_AMOUNT = "org.byui.meg21allred.thymesavor.EXTRA_AMOUNT";
     public static final String EXTRA_TYPE = "org.byui.meg21allred.thymesavor.EXTRA_TYPE";
     public static final String EXTRA_STEP = "org.byui.meg21allred.thymesavor.EXTRA_STEP";
+    public static final String EXTRA_RATING = "org.byui.meg21allred.thymesavor.EXTRA_RATING";
 
 
     private EditText titleET;
@@ -41,6 +42,7 @@ public class NewRecipeActivity extends AppCompatActivity {
     private EditText stepET;
     private Button addIngredientBtn;
     private TextView ingredientsTV;
+    private EditText ratingDisplayEt;
 
 
     Button addStepsActitivyBtn;
@@ -61,6 +63,9 @@ public class NewRecipeActivity extends AppCompatActivity {
         addIngredientBtn = (Button) findViewById(R.id.addIngredientBtn);
         ingredientsTV = (TextView) findViewById(R.id.ingredientsTV);
         addStepsActitivyBtn = (Button) findViewById(R.id.addStepsActivityBtn);
+
+        ratingDisplayEt = (EditText) findViewById(R.id.ratingDisplayET);
+        ratingDisplayEt.setText(recipe.getRating());
 
         Intent intent = getIntent();
 
@@ -155,4 +160,6 @@ public class NewRecipeActivity extends AppCompatActivity {
                                                 // to ArrayList<String> ingredient?
 
     }
+
+
 }
