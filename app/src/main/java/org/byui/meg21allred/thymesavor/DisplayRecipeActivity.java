@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -16,7 +17,9 @@ public class DisplayRecipeActivity extends AppCompatActivity {
     Button startCookingBtn;
     TextView recipeTV;
     NewRecipeActivity newRecipe;
+    Intent lastIntent;
 
+    Recipe recipe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +31,13 @@ public class DisplayRecipeActivity extends AppCompatActivity {
         startCookingBtn = (Button) findViewById(R.id.startCookingBtn);
         recipeTV = (TextView) findViewById(R.id.recipeTV);
 
-        Intent intent = getIntent();
+        lastIntent = getIntent();
 
-        if(intent.hasExtra(newRecipe.EXTRA_ID)) {
+        if(lastIntent.hasExtra(newRecipe.EXTRA_ID)) {
 
-            String fullRecipe = fullRecipe(intent);
+            String fullRecipe = fullRecipe(lastIntent);
             recipeTV.setText(fullRecipe);
-            fullRecipe(intent);
+            //fullRecipe(intent);
 
         }
 
@@ -45,23 +48,28 @@ public class DisplayRecipeActivity extends AppCompatActivity {
 
     public void startDisplayStepsActivity() {
         Intent intent = new Intent(this, DisplaySteps.class);
-        startActivity(intent);
+
+            ArrayList<String> amount = lastIntent.getStringArrayListExtra(newRecipe.EXTRA_AMOUNT);
+            ArrayList<String> ingredient = lastIntent.getStringArrayListExtra(newRecipe.EXTRA_INGREDIENT);
+            ArrayList<String> type = lastIntent.getStringArrayListExtra(newRecipe.EXTRA_TYPE);
+            ArrayList<String> step = lastIntent.getStringArrayListExtra(newRecipe.EXTRA_STEP);
+
+
+            intent.putStringArrayListExtra(newRecipe.EXTRA_INGREDIENT, ingredient);
+            intent.putStringArrayListExtra(newRecipe.EXTRA_AMOUNT, amount);
+            intent.putStringArrayListExtra(newRecipe.EXTRA_TYPE, type);
+            intent.putStringArrayListExtra(newRecipe.EXTRA_STEP, step);
+
+            startActivity(intent);
+
     }
 
     public String fullRecipe(Intent intent) {
         String title = intent.getStringExtra(newRecipe.EXTRA_TITLE);
-        //String amount = intent.getStringExtra(newRecipe.EXTRA_AMOUNT);
         ArrayList<String> amount = intent.getStringArrayListExtra(newRecipe.EXTRA_AMOUNT);
         ArrayList<String> ingredient = intent.getStringArrayListExtra(newRecipe.EXTRA_INGREDIENT);
         ArrayList<String> type = intent.getStringArrayListExtra(newRecipe.EXTRA_TYPE);
         ArrayList<String> step = intent.getStringArrayListExtra(newRecipe.EXTRA_STEP);
-        //ArrayList<String> ingredient = new ArrayList<>();
-        //String ingredient = intent.getStringExtra(newRecipe.EXTRA_INGREDIENT);
-        //String type = intent.getStringExtra(newRecipe.EXTRA_TYPE);
-        //String step = intent.getStringExtra(newRecipe.EXTRA_STEP);
-
-        //fullRecipe = title + "\n\n" + amount + " " + type + " " + ingredient + "\n\n" + step;
-        //fullRecipe = "Mac and Cheese";
 
         String fullRecipe = title + "\n\n\n";
         for (int i = 0; i < ingredient.size(); i++) {
@@ -75,5 +83,20 @@ public class DisplayRecipeActivity extends AppCompatActivity {
         }
 
         return fullRecipe;
+    }
+
+    public String IngredientList(Intent intent) {
+
+        ArrayList<String> amount = intent.getStringArrayListExtra(newRecipe.EXTRA_AMOUNT);
+        ArrayList<String> ingredient = intent.getStringArrayListExtra(newRecipe.EXTRA_INGREDIENT);
+        ArrayList<String> type = intent.getStringArrayListExtra(newRecipe.EXTRA_TYPE);
+
+        String ingredientList = "";
+        for (int i = 0; i < ingredient.size(); i++) {
+            ingredientList += amount.get(i) + " " + type.get(i) + " " + ingredient.get(i) + "\n";
+        }
+
+        return ingredientList;
+
     }
 }
