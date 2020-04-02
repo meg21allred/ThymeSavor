@@ -43,6 +43,9 @@ public class NewRecipeActivity extends AppCompatActivity {
     private Button addIngredientBtn;
     private TextView ingredientsTV;
     private EditText ratingDisplayEt;
+    private EditText enterRateEt;
+    private int rating;
+
 
 
     Button addStepsActitivyBtn;
@@ -64,8 +67,9 @@ public class NewRecipeActivity extends AppCompatActivity {
         ingredientsTV = (TextView) findViewById(R.id.ingredientsTV);
         addStepsActitivyBtn = (Button) findViewById(R.id.addStepsActivityBtn);
 
-        ratingDisplayEt = (EditText) findViewById(R.id.ratingDisplayET);
-        ratingDisplayEt.setText(recipe.getRating());
+        enterRateEt = (EditText) findViewById(R.id.enterRateET);
+
+
 
         Intent intent = getIntent();
 
@@ -80,6 +84,7 @@ public class NewRecipeActivity extends AppCompatActivity {
             //stepET.setText(intent.getStringExtra(EXTRA_STEP));
             recipe.setStep(intent.getStringArrayListExtra(EXTRA_STEP));
 
+ 
         }
 
         final Button saveBtn = findViewById(R.id.saveBtn);
@@ -108,6 +113,10 @@ public class NewRecipeActivity extends AppCompatActivity {
                     //replyIntent.putExtra(EXTRA_STEP, step);
                     replyIntent.putStringArrayListExtra(EXTRA_STEP, step);
                     //same format for the rest of the edit texts
+
+                    recipe.setRating(enterRateEt.getText().toString());
+
+                    replyIntent.putExtra(EXTRA_RATING, recipe.getRating());
 
                     int id = getIntent().getIntExtra(EXTRA_ID, -1);
                     if (id != -1) {
@@ -195,6 +204,9 @@ public class NewRecipeActivity extends AppCompatActivity {
         stepET.setText("");
 
 
+    }
+    public void clearMessage(View view) {
+        enterRateEt.setText("");
     }
 
 
