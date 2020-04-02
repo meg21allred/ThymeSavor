@@ -74,6 +74,7 @@ public class AddRecipeRoom extends AppCompatActivity {
                 intent.putExtra(NewRecipeActivity.EXTRA_AMOUNT, recipe.getAmount());
                 intent.putExtra(NewRecipeActivity.EXTRA_TYPE, recipe.getType());
                 intent.putExtra(NewRecipeActivity.EXTRA_STEP, recipe.getStep());
+                //Intent.putExtra(NewRecipeActivity.EXTRA_RATING, recipe.getRating());
 
                 startActivityForResult(intent, EDIT_RECIPE_ACTIVITY_REQUEST_CODE);
 
