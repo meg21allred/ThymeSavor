@@ -26,6 +26,11 @@ public class Recipe {
     //private String step;
     private ArrayList<String> step = new ArrayList<>();
 
+    @NonNull
+    @ColumnInfo(name = "rating")
+    private String rating;
+
+
     public Recipe() {}
 
 
@@ -36,11 +41,20 @@ public class Recipe {
         this.amount = amount;
         this.type = type;
         this.step = step;
+        this.rating = "0";
 
     }
 
     public String getTitle() {
         return title;
+    }
+
+    public void setRating(@NonNull String rating) {
+        this.rating = rating;
+    }
+
+    public String getRating() {
+        return rating;
     }
 
     public ArrayList<String> getIngredient() {
