@@ -18,14 +18,13 @@ public class Recipe {
     private String title;
     private ArrayList<String> ingredient = new ArrayList<>();
     //private String ingredient;
-    private String amount;
-    @NonNull
-    @ColumnInfo(name = "type")
-    private String type;
+    //private String amount;
+    private ArrayList<String> amount = new ArrayList<>();
 
-    @NonNull
-    @ColumnInfo(name = "step")
-    private String step;
+    //private String type;
+    private ArrayList<String> type = new ArrayList<>();
+    //private String step;
+    private ArrayList<String> step = new ArrayList<>();
 
     @NonNull
     @ColumnInfo(name = "rating")
@@ -35,7 +34,8 @@ public class Recipe {
     public Recipe() {}
 
 
-    public Recipe(String title, ArrayList<String> ingredient, String amount, String type, String step) {
+    public Recipe(String title, ArrayList<String> ingredient, ArrayList<String> amount,
+                  ArrayList<String> type, ArrayList<String> step) {
         this.title = title;
         this.ingredient = ingredient;
         this.amount = amount;
@@ -61,15 +61,15 @@ public class Recipe {
         return ingredient;
     }
 
-    public String getAmount() {
+    public ArrayList<String> getAmount() {
         return amount;
     }
 
-    public String getType() {
+    public ArrayList<String> getType() {
         return type;
     }
 
-    public String getStep() {
+    public ArrayList<String> getStep() {
         return step;
     }
 
@@ -89,15 +89,15 @@ public class Recipe {
         this.title = title;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(ArrayList<String> amount) {
         this.amount = amount;
     }
 
-    public void setType(@NonNull String type) {
+    public void setType(ArrayList<String> type) {
         this.type = type;
     }
 
-    public void setStep(@NonNull String step) {
+    public void setStep(ArrayList<String> step) {
         this.step = step;
     }
 }
