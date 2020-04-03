@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
 
     <TextView
         android:id="@+id/recipeTV"
@@ -10,4 +12,12 @@
         android:layout_height="wrap_content"
         android:background="#107020"
         android:textColor="#ffffff"/>
+    <TextView
+        android:id="@+id/ratingTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
 </LinearLayout>
