@@ -32,6 +32,7 @@ public class NewRecipeActivity extends AppCompatActivity {
     public static final String EXTRA_AMOUNT = "org.byui.meg21allred.thymesavor.EXTRA_AMOUNT";
     public static final String EXTRA_TYPE = "org.byui.meg21allred.thymesavor.EXTRA_TYPE";
     public static final String EXTRA_STEP = "org.byui.meg21allred.thymesavor.EXTRA_STEP";
+    public static final String EXTRA_RATING = "org.byui.meg21allred.thymesavor.EXTRA_RATING";
 
 
     private EditText titleET;
@@ -70,6 +71,7 @@ public class NewRecipeActivity extends AppCompatActivity {
             recipe.setAmount(intent.getStringArrayListExtra(EXTRA_AMOUNT));
             recipe.setType(intent.getStringArrayListExtra(EXTRA_TYPE));
             recipe.setStep(intent.getStringArrayListExtra(EXTRA_STEP));
+            recipe.setRating(intent.getStringExtra(EXTRA_RATING));
 
         }
 
@@ -85,12 +87,15 @@ public class NewRecipeActivity extends AppCompatActivity {
                     ArrayList<String> amount = recipe.getAmount();
                     ArrayList<String> type = recipe.getType();
                     ArrayList<String> step = recipe.getStep();
+                    String rating = "0";
 
                     replyIntent.putExtra(EXTRA_TITLE, title);
                     replyIntent.putStringArrayListExtra(EXTRA_INGREDIENT, ingredient);
                     replyIntent.putStringArrayListExtra(EXTRA_AMOUNT, amount);
                     replyIntent.putStringArrayListExtra(EXTRA_TYPE, type);
                     replyIntent.putStringArrayListExtra(EXTRA_STEP, step);
+                    replyIntent.putExtra(EXTRA_RATING, rating);
+
                     //same format for the rest of the edit texts
 
                     int id = getIntent().getIntExtra(EXTRA_ID, -1);
@@ -122,12 +127,15 @@ public class NewRecipeActivity extends AppCompatActivity {
             ArrayList<String> amount = recipe.getAmount();
             ArrayList<String> type = recipe.getType();
             ArrayList<String> step = recipe.getStep();
+            String rating = "0";
 
             replyIntent.putExtra(EXTRA_TITLE, title);
             replyIntent.putStringArrayListExtra(EXTRA_INGREDIENT, ingredient);
             replyIntent.putStringArrayListExtra(EXTRA_AMOUNT, amount);
             replyIntent.putStringArrayListExtra(EXTRA_TYPE, type);
             replyIntent.putStringArrayListExtra(EXTRA_STEP, step);
+            replyIntent.putExtra(EXTRA_RATING, rating);
+
 
             int id = getIntent().getIntExtra(EXTRA_ID, -1);
             if (id != -1) {

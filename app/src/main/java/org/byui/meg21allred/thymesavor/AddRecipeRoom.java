@@ -99,6 +99,8 @@ public class AddRecipeRoom extends AppCompatActivity {
             ArrayList<String> amount = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_AMOUNT);
             ArrayList<String> type = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_TYPE);
             ArrayList<String> step = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_STEP);
+            String rating = data.getStringExtra(NewRecipeActivity.EXTRA_RATING);
+
 
             Recipe recipe = new Recipe(title, ingredient, amount, type, step);
             recipeViewModel.insert(recipe);
@@ -115,6 +117,8 @@ public class AddRecipeRoom extends AppCompatActivity {
             ArrayList<String> amount = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_AMOUNT);
             ArrayList<String> type = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_TYPE);
             ArrayList<String> step = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_STEP);
+            String rating = data.getStringExtra(NewRecipeActivity.EXTRA_RATING);
+
 
             Recipe recipe = new Recipe(title, ingredient, amount, type, step);
             recipe.setId(id);

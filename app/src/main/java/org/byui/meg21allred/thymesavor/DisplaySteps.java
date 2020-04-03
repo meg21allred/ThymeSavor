@@ -83,6 +83,8 @@ public class DisplaySteps extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(DisplaySteps.this, FinishRecipe.class);
+                    String rating = "0";
+                    intent.putExtra(newRecipe.EXTRA_RATING, rating);
                     startActivity(intent);
                 }
             });

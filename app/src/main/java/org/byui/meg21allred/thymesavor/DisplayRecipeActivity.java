@@ -53,12 +53,14 @@ public class DisplayRecipeActivity extends AppCompatActivity {
             ArrayList<String> ingredient = lastIntent.getStringArrayListExtra(newRecipe.EXTRA_INGREDIENT);
             ArrayList<String> type = lastIntent.getStringArrayListExtra(newRecipe.EXTRA_TYPE);
             ArrayList<String> step = lastIntent.getStringArrayListExtra(newRecipe.EXTRA_STEP);
+            String rating = "0";
 
 
             intent.putStringArrayListExtra(newRecipe.EXTRA_INGREDIENT, ingredient);
             intent.putStringArrayListExtra(newRecipe.EXTRA_AMOUNT, amount);
             intent.putStringArrayListExtra(newRecipe.EXTRA_TYPE, type);
             intent.putStringArrayListExtra(newRecipe.EXTRA_STEP, step);
+            intent.putExtra(newRecipe.EXTRA_RATING, rating);
 
             startActivity(intent);
 

@@ -55,18 +55,17 @@ public class RatingActivity extends AppCompatActivity {
 
                     // get activity information into another activity-- not by passing an intent
                     // maybe by updating it
-                   // recipe.setRating(enterRateEt.getText().toString());
+                    // recipe.setRating(enterRateEt.getText().toString());
 
                     // this will start the train of passing rate back to the Recipe
                     //FinishRecipe FR = new FinishRecipe();
-                  //  FR.setRating(rating);
+                    //  FR.setRating(rating);
 
 
-
-                //    int id = getIntent().getIntExtra(EXTRA_ID, -1);
-               //    if (id != -1) {
-                //        replyIntent.putExtra(EXTRA_ID, id);
-                   // }
+                    //    int id = getIntent().getIntExtra(EXTRA_ID, -1);
+                    //    if (id != -1) {
+                     //        replyIntent.putExtra(EXTRA_ID, id);
+                      // }
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();
