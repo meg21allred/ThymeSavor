@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class RatingActivity extends AppCompatActivity {
-
+/*
     private EditText enterRateEt;
     NewRecipeActivity newRecipe;
     Button ratingBtn;
@@ -63,7 +63,9 @@ public class RatingActivity extends AppCompatActivity {
     public void goToLastActivity() {
         Intent intent = new Intent (this, FinishRecipe.class);
         startActivity(intent);
-    }*/
+    }
+    */
+
 
 
 }

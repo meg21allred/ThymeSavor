@@ -42,6 +42,7 @@ public class NewRecipeActivity extends AppCompatActivity {
     private EditText stepET;
     private Button addIngredientBtn;
     private TextView ingredientsTV;
+    private EditText enterRateEt;
 
 
     Button addStepsActitivyBtn;
@@ -62,6 +63,7 @@ public class NewRecipeActivity extends AppCompatActivity {
         addIngredientBtn = (Button) findViewById(R.id.addIngredientBtn);
         ingredientsTV = (TextView) findViewById(R.id.ingredientsTV);
         addStepsActitivyBtn = (Button) findViewById(R.id.addStepsActivityBtn);
+        enterRateEt = (EditText) findViewById(R.id.enterRateET);
 
         Intent intent = getIntent();
 
@@ -87,7 +89,7 @@ public class NewRecipeActivity extends AppCompatActivity {
                     ArrayList<String> amount = recipe.getAmount();
                     ArrayList<String> type = recipe.getType();
                     ArrayList<String> step = recipe.getStep();
-                    String rating = "0";
+                    String rating = enterRateEt.getText().toString();
 
                     replyIntent.putExtra(EXTRA_TITLE, title);
                     replyIntent.putStringArrayListExtra(EXTRA_INGREDIENT, ingredient);
@@ -183,5 +185,9 @@ public class NewRecipeActivity extends AppCompatActivity {
 
     public Recipe getRecipe(){
         return recipe;
+    }
+
+    public void clearMessage(View view) {
+        enterRateEt.setText("0");
     }
 }
