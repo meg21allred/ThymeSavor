@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -23,7 +25,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class NewRecipeActivity extends AppCompatActivity {
 
     Recipe recipe;
-    //private ArrayList<String> ingredient = recipe.getIngredient();
+    SoundPool soundPool;
+    int wooHooSound;
 
 
     public static final String EXTRA_ID = "org.byui.meg21allred.thymesavor.EXTRA_ID";
@@ -63,6 +66,9 @@ public class NewRecipeActivity extends AppCompatActivity {
         ingredientsTV = (TextView) findViewById(R.id.ingredientsTV);
         addStepsActitivyBtn = (Button) findViewById(R.id.addStepsActivityBtn);
 
+        soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
+        wooHooSound = soundPool.load(this, R.raw.woohoo_sound, 1);
+
         Intent intent = getIntent();
 
         if(intent.hasExtra(EXTRA_ID)) {
@@ -79,6 +85,7 @@ public class NewRecipeActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent replyIntent = new Intent();
+                soundPool.play(wooHooSound, 5,5,0,0,1);
                 if (TextUtils.isEmpty(titleET.getText())) {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {

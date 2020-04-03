@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
         android:id="@+id/recipeTV"
         style="@style/recipe_title"
@@ -12,12 +14,14 @@
         android:layout_height="wrap_content"
         android:background="#107020"
         android:textColor="#ffffff"/>
+
     <TextView
         android:id="@+id/ratingTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:text="0"
+        android:textColor="#ffffff"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
+</RelativeLayout>
 </LinearLayout>

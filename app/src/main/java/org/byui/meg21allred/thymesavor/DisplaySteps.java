@@ -3,6 +3,8 @@ package org.byui.meg21allred.thymesavor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -21,6 +23,8 @@ public class DisplaySteps extends AppCompatActivity {
     int stepNumber = 0;
     NewRecipeActivity newRecipe;
     Recipe recipe;
+    SoundPool soundPool;
+    int yaySound;
 
 
     @Override
@@ -33,6 +37,9 @@ public class DisplaySteps extends AppCompatActivity {
         nextStepBtn = (Button) findViewById(R.id.nextStepBtn);
         ingredientsTV = (TextView) findViewById(R.id.ingredientsTV);
         stepTV = (TextView) findViewById(R.id.stepTV);
+
+        soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
+        yaySound = soundPool.load(this, R.raw.yay_sound, 1);
 
         Intent intent = getIntent();
 
@@ -79,6 +86,7 @@ public class DisplaySteps extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(DisplaySteps.this, FinishRecipe.class);
+                    soundPool.play(yaySound, 4,4,0,0,1);
                     String rating = "0";
 
                     intent.putExtra(newRecipe.EXTRA_RATING,rating);
