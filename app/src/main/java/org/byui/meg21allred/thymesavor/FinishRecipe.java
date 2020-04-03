@@ -11,6 +11,7 @@ import android.view.Window;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class FinishRecipe extends AppCompatActivity {
 
@@ -47,16 +48,14 @@ public class FinishRecipe extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void ratingBtn(View view) {goToRatingActivity();}
+    public void ratingBtn(View view) {goToRecyclerView();}
 
-    public void goToRatingActivity() {
-        Intent intent = new Intent(this, RatingActivity.class);
-        String rating = "2";
-        //recipe.setRating(rating);
-
-
-        intent.putExtra(newRecipe.EXTRA_RATING,rating);
+    // have the rating button send back to the recycler view
+    public void goToRecyclerView() {
+        Intent intent = new Intent(this, AddRecipeRoom.class);
         startActivity(intent);
+
+        Toast.makeText(getApplicationContext(),"Pick a Recipe to Rate",Toast.LENGTH_LONG).show();
     }
 
 }

@@ -163,44 +163,60 @@
         android:id="@+id/saveBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="44dp"
         android:background="@drawable/round_button"
         android:text="SAVE"
         android:textColor="#107020"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addStepsActivityBtn"
-        app:layout_constraintVertical_bias="0.619" />
+        app:layout_constraintVertical_bias="0.926" />
 
     <Button
         android:id="@+id/displayBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Display"
-        android:textColor="#107020"
         android:background="@drawable/round_button"
         android:onClick="displayRecipe"
+        android:text="Display"
+        android:textColor="#107020"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/saveBtn"
-        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addStepsActivityBtn"
-        app:layout_constraintVertical_bias="0.619" />
+        app:layout_constraintVertical_bias="0.926" />
+    <TextView
+        android:id="@+id/enterRateTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="Rate the Recipe!"
+        android:textColor="#107020"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.729"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addStepsActivityBtn" />
+
 
     <EditText
-        android:id="@+id/ratingDisplayET"
+        android:id="@+id/enterRateET"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:background="#ffffff"
         android:ems="10"
-        android:hint="Rating"
         android:inputType="textPersonName"
+        android:onClick="clearMessage"
+        android:text="Enter your rating..."
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.739"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stepET" />
+        app:layout_constraintTop_toBottomOf="@+id/enterRateTV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
