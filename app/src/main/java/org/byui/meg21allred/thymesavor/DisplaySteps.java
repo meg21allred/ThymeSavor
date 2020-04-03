@@ -20,6 +20,7 @@ public class DisplaySteps extends AppCompatActivity {
     ArrayList <String> stepList = new ArrayList<>();
     int stepNumber = 0;
     NewRecipeActivity newRecipe;
+    Recipe recipe;
 
 
     @Override
@@ -59,11 +60,6 @@ public class DisplaySteps extends AppCompatActivity {
 
     public String stepList(Intent intent) {
         stepList = intent.getStringArrayListExtra(newRecipe.EXTRA_STEP);
-        /*stepList.add("boil water");
-        stepList.add("add pasta");
-        stepList.add("boil pasta for 8 min");
-        stepList.add("drain pasta, add cheese and milk and stir until cheese disolves");
-        stepList.add("Enjoy!");*/
 
         return stepList.get(0);
     }
@@ -84,7 +80,8 @@ public class DisplaySteps extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(DisplaySteps.this, FinishRecipe.class);
                     String rating = "0";
-                    intent.putExtra(newRecipe.EXTRA_RATING, rating);
+
+                    intent.putExtra(newRecipe.EXTRA_RATING,rating);
                     startActivity(intent);
                 }
             });

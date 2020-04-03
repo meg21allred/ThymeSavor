@@ -35,13 +35,13 @@ public class Recipe {
 
 
     public Recipe(String title, ArrayList<String> ingredient, ArrayList<String> amount,
-                  ArrayList<String> type, ArrayList<String> step) {
+                  ArrayList<String> type, ArrayList<String> step, String rating) {
         this.title = title;
         this.ingredient = ingredient;
         this.amount = amount;
         this.type = type;
         this.step = step;
-        this.rating = "0";
+        this.rating = rating;
 
     }
 

@@ -95,7 +95,6 @@ public class NewRecipeActivity extends AppCompatActivity {
                     replyIntent.putStringArrayListExtra(EXTRA_TYPE, type);
                     replyIntent.putStringArrayListExtra(EXTRA_STEP, step);
                     replyIntent.putExtra(EXTRA_RATING, rating);
-
                     //same format for the rest of the edit texts
 
                     int id = getIntent().getIntExtra(EXTRA_ID, -1);
@@ -135,7 +134,6 @@ public class NewRecipeActivity extends AppCompatActivity {
             replyIntent.putStringArrayListExtra(EXTRA_TYPE, type);
             replyIntent.putStringArrayListExtra(EXTRA_STEP, step);
             replyIntent.putExtra(EXTRA_RATING, rating);
-
 
             int id = getIntent().getIntExtra(EXTRA_ID, -1);
             if (id != -1) {

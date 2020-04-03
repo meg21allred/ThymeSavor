@@ -18,6 +18,7 @@ public class FinishRecipe extends AppCompatActivity {
     Button timerBtn;
     Button ratingBtn;
     NewRecipeActivity newRecipe;
+    Recipe recipe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +51,11 @@ public class FinishRecipe extends AppCompatActivity {
 
     public void goToRatingActivity() {
         Intent intent = new Intent(this, RatingActivity.class);
-        String rating = "0";
-        intent.putExtra(newRecipe.EXTRA_RATING, rating);
+        String rating = "2";
+        //recipe.setRating(rating);
+
+
+        intent.putExtra(newRecipe.EXTRA_RATING,rating);
         startActivity(intent);
     }
 

@@ -60,7 +60,7 @@ public class DisplayRecipeActivity extends AppCompatActivity {
             intent.putStringArrayListExtra(newRecipe.EXTRA_AMOUNT, amount);
             intent.putStringArrayListExtra(newRecipe.EXTRA_TYPE, type);
             intent.putStringArrayListExtra(newRecipe.EXTRA_STEP, step);
-            intent.putExtra(newRecipe.EXTRA_RATING, rating);
+            intent.putExtra(newRecipe.EXTRA_RATING,rating);
 
             startActivity(intent);
 

@@ -74,6 +74,7 @@ public class AddRecipeRoom extends AppCompatActivity {
                 intent.putStringArrayListExtra(NewRecipeActivity.EXTRA_AMOUNT, recipe.getAmount());
                 intent.putStringArrayListExtra(NewRecipeActivity.EXTRA_TYPE, recipe.getType());
                 intent.putStringArrayListExtra(NewRecipeActivity.EXTRA_STEP, recipe.getStep());
+                intent.putExtra(NewRecipeActivity.EXTRA_RATING, recipe.getRating());
 
                 startActivityForResult(intent, EDIT_RECIPE_ACTIVITY_REQUEST_CODE);
 
@@ -101,8 +102,7 @@ public class AddRecipeRoom extends AppCompatActivity {
             ArrayList<String> step = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_STEP);
             String rating = data.getStringExtra(NewRecipeActivity.EXTRA_RATING);
 
-
-            Recipe recipe = new Recipe(title, ingredient, amount, type, step);
+            Recipe recipe = new Recipe(title, ingredient, amount, type, step, rating);
             recipeViewModel.insert(recipe);
         } else if (requestCode == EDIT_RECIPE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             int id = data.getIntExtra(NewRecipeActivity.EXTRA_ID, -1);
@@ -119,8 +119,7 @@ public class AddRecipeRoom extends AppCompatActivity {
             ArrayList<String> step = data.getStringArrayListExtra(NewRecipeActivity.EXTRA_STEP);
             String rating = data.getStringExtra(NewRecipeActivity.EXTRA_RATING);
 
-
-            Recipe recipe = new Recipe(title, ingredient, amount, type, step);
+            Recipe recipe = new Recipe(title, ingredient, amount, type, step, rating);
             recipe.setId(id);
             recipeViewModel.update(recipe);
 

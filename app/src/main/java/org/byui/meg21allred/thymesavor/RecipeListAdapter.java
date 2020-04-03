@@ -32,10 +32,11 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             Recipe current = recipes.get(position);
             holder.recipeItemView.setText(current.getTitle());
             //you would need to setText for the rate variable her as well
-            //holder.recipeRateIV.setText(String.valueOf(currentRecipe.getRating()));
+            holder.ratingTV.setText(String.valueOf(current.getRating()));
+            //holder.ratingTV.setText(String.valueOf("2"));
         } else {
             holder.recipeItemView.setText("No Title");
-            //holder.recipeRateIV.setText(String.valueOf("0"));
+            holder.ratingTV.setText(String.valueOf("2"));
 
         }
 
@@ -61,6 +62,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
     class RecipeViewHolder extends RecyclerView.ViewHolder {
         public final TextView recipeItemView;
+        public final TextView ratingTV;
 
         //if you want to add a rateing to the title you would do it here
         //remember to add a text view in the recycler view layout file
@@ -68,6 +70,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
             recipeItemView = itemView.findViewById(R.id.recipeTV);
+            ratingTV = itemView.findViewById(R.id.ratingTV);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
