@@ -195,6 +195,6 @@ public class NewRecipeActivity extends AppCompatActivity {
     }
 
     public void clearMessage(View view) {
-        enterRateEt.setText("0");
+        enterRateEt.setText("");
     }
 }

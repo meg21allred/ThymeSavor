@@ -36,7 +36,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             //holder.ratingTV.setText(String.valueOf("2"));
         } else {
             holder.recipeItemView.setText("No Title");
-            holder.ratingTV.setText(String.valueOf("2"));
+            holder.ratingTV.setText(String.valueOf("0"));
 
         }
 
