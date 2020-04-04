@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RatingActivity"></activity>
         <activity android:name=".AddRecipeRoom" />
         <activity android:name=".TimerActivity" />
         <activity android:name=".FinishRecipe" />
