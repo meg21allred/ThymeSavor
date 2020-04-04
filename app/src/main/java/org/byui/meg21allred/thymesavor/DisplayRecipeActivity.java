@@ -3,11 +3,14 @@ package org.byui.meg21allred.thymesavor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,6 +21,9 @@ public class DisplayRecipeActivity extends AppCompatActivity {
     TextView recipeTV;
     NewRecipeActivity newRecipe;
     Intent lastIntent;
+
+    Button addImageBtn;
+    ImageView imageView;
 
     Recipe recipe;
 
@@ -41,7 +47,24 @@ public class DisplayRecipeActivity extends AppCompatActivity {
 
         }
 
+        addImageBtn = (Button) findViewById(R.id.addImageBtn);
+        imageView = (ImageView) findViewById(R.id.recipeImageIV);
 
+        addImageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+        imageView.setImageBitmap(bitmap);
     }
 
     public void displaySteps(View view) { startDisplayStepsActivity();}
