@@ -73,16 +73,16 @@ public abstract class RecipeDatabase extends RoomDatabase {
             //String ingredient = "Mac and Cheese";
             // If you want to keep data through app restarts,
             // comment out the following block
-            databaseWriteExecutor.execute(() -> {
+           /* databaseWriteExecutor.execute(() -> {
                 // Populate the database in the background.
                 // If you want to start with more words, just add them.
                 RecipeDao dao = INSTANCE.recipeDao();
-                dao.deleteAll();
+               // dao.deleteAll();
 
                 Recipe recipe = new Recipe("Mac and Cheese", ingredient, amount, type, step, "0");
                 dao.insert(recipe);
 
-            });
+            });*/
         }
     };
 
