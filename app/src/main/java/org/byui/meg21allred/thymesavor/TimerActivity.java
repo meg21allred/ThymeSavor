@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
+//This class is creates an Activity with a timer ability
 public class TimerActivity extends AppCompatActivity {
     private static final long START_TIME_IN_MILLIS = 1500000;
 
@@ -48,21 +49,25 @@ public class TimerActivity extends AppCompatActivity {
 
     public void mainMenu2(View view) { goToMainMenu2Activity();}
 
+    //return to the main menu
     public void goToMainMenu2Activity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    //reset the timer
     public void resetTimer(View view) {
         mTimeleftInMillis = (Integer.valueOf(enterTimeEt.getText().toString())) * 60000;
         updateCountDownText();
     }
 
+    //pause the timer
     public void pauseTimer(View view) {
         countDownTimer.cancel();
         timerRunning = false;
     }
 
+    //Start the timer
     public void startTimer(View view) {
 
         minutes = Integer.valueOf(enterTimeEt.getText().toString());
@@ -87,6 +92,7 @@ public class TimerActivity extends AppCompatActivity {
         updateCountDownText();
     }
 
+    //update the timer
     private void updateCountDownText() {
         int minutes = (int) (mTimeleftInMillis / 1000) / 60;
         int seconds = (int) (mTimeleftInMillis / 1000) % 60;

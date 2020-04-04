@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+//This recipe is takes all the data from the room database to display all the parts of the recipe in one place
 public class DisplayRecipeActivity extends AppCompatActivity {
 
     Button startCookingBtn;
@@ -37,6 +38,7 @@ public class DisplayRecipeActivity extends AppCompatActivity {
         startCookingBtn = (Button) findViewById(R.id.startCookingBtn);
         recipeTV = (TextView) findViewById(R.id.recipeTV);
 
+        //get the data from the last activity
         lastIntent = getIntent();
 
         if(lastIntent.hasExtra(newRecipe.EXTRA_ID)) {
@@ -69,6 +71,7 @@ public class DisplayRecipeActivity extends AppCompatActivity {
 
     public void displaySteps(View view) { startDisplayStepsActivity();}
 
+    //sends recipe data to the next activity and starts the next activity
     public void startDisplayStepsActivity() {
         Intent intent = new Intent(this, DisplaySteps.class);
 
@@ -88,7 +91,7 @@ public class DisplayRecipeActivity extends AppCompatActivity {
             startActivity(intent);
 
     }
-
+    //This function is used to add all the recipe data together and display it in one Text view
     public String fullRecipe(Intent intent) {
         String title = intent.getStringExtra(newRecipe.EXTRA_TITLE);
         ArrayList<String> amount = intent.getStringArrayListExtra(newRecipe.EXTRA_AMOUNT);
@@ -110,6 +113,7 @@ public class DisplayRecipeActivity extends AppCompatActivity {
         return fullRecipe;
     }
 
+    //this function displays just the list of ingredients
     public String IngredientList(Intent intent) {
 
         ArrayList<String> amount = intent.getStringArrayListExtra(newRecipe.EXTRA_AMOUNT);

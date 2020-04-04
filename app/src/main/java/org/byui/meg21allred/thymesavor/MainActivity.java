@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+//This main activity mostly just displays the Start Screen
 public class MainActivity extends AppCompatActivity {
 
     Button enterNewRecipeBtn;

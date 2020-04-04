@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+//this class is an adapter that helps display data in the recycler view
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder> {
 
     private final LayoutInflater inflater;
@@ -64,7 +65,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         public final TextView recipeItemView;
         public final TextView ratingTV;
 
-        //if you want to add a rateing to the title you would do it here
+        //if you want to add other data to the title you would do it here
         //remember to add a text view in the recycler view layout file
 
         public RecipeViewHolder(@NonNull View itemView) {

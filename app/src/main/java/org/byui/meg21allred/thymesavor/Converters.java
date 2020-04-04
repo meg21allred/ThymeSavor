@@ -9,6 +9,8 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+//This class makes it possible to save arrayLists in the room library data base by converting the
+//arrayList to a json string and back to an arrayList
 public class Converters {
 
     @TypeConverter

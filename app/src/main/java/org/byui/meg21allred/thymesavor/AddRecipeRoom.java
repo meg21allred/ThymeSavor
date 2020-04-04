@@ -19,6 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
+//This class is the driver for the room library
 
 public class AddRecipeRoom extends AppCompatActivity {
 
@@ -34,6 +35,7 @@ public class AddRecipeRoom extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_add_recipe_room);
 
+        //RecyclerView displays the clickable titles of the recipes
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final RecipeListAdapter adapter = new RecipeListAdapter(this);
         recyclerView.setAdapter(adapter);
@@ -48,7 +50,7 @@ public class AddRecipeRoom extends AppCompatActivity {
                 adapter.setRecipes(recipes);
             }
         });
-
+        //TouchHelper is used to permit a swiping function that is used in the app to delete the recipes
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -64,6 +66,7 @@ public class AddRecipeRoom extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
+        //This is how all the infomation for each recipe it saved
         adapter.setOnItemClickListener(new RecipeListAdapter.ClickListener() {
             @Override
             public void onItemClick(Recipe recipe) {
@@ -80,7 +83,7 @@ public class AddRecipeRoom extends AppCompatActivity {
 
             }
         });
-
+        //floating button is used to add a new recipe
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +93,7 @@ public class AddRecipeRoom extends AppCompatActivity {
             }
         });
     }
-
+    //This function will save and update the recipe if RESULT_OK
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 

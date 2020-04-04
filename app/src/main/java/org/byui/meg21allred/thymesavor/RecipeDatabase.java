@@ -16,6 +16,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+//This class is part of the room database classes and now data is stored
 @Database(entities = {Recipe.class}, version = 1, exportSchema = false)
 @TypeConverters({Converters.class})
 public abstract class RecipeDatabase extends RoomDatabase {
@@ -42,6 +43,8 @@ public abstract class RecipeDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
+    //This function will store a pre-written recipe and delete all the other recipes if the
+    // parts of it are uncommented out.
     private static RecipeDatabase.Callback RecipeDatabaseCallback = new RecipeDatabase.Callback() {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {

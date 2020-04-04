@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
+//This class is where all the recipe data is collected from the user
 public class NewRecipeActivity extends AppCompatActivity {
 
     Recipe recipe;
@@ -71,6 +72,8 @@ public class NewRecipeActivity extends AppCompatActivity {
         soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
         wooHooSound = soundPool.load(this, R.raw.woohoo_sound, 1);
 
+        //Get the intent info from the last activity and used the id to identify the recipe and
+        //update the recipe with the new information
         Intent intent = getIntent();
 
         if(intent.hasExtra(EXTRA_ID)) {
@@ -83,6 +86,8 @@ public class NewRecipeActivity extends AppCompatActivity {
 
         }
 
+        //this function uses the save button to take all the data from the edit texts and the
+        //saved arrays to create a recipe and store it in the database
         final Button saveBtn = findViewById(R.id.saveBtn);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -124,6 +129,8 @@ public class NewRecipeActivity extends AppCompatActivity {
         openDisplayRecipeActivity();
     }
 
+    //this function opens the next activity and sends all the recipe information so it can be
+    //displayed
     public void openDisplayRecipeActivity() {
 
         Intent replyIntent = new Intent(this, DisplayRecipeActivity.class);
@@ -159,6 +166,8 @@ public class NewRecipeActivity extends AppCompatActivity {
         addIngredientToRecipe();
 
     }
+    //this function uses the "+ ingredient" button to add the data in the enterIngredientET to the
+    //ingredient arrayList in the Recipe class
     public void addIngredientToRecipe() {
 
         //add ingredient to recipe
@@ -179,6 +188,8 @@ public class NewRecipeActivity extends AppCompatActivity {
         addStepToRecipe();
 
     }
+    //this function uses the "+ step" button to add the data in the stepET to the
+    //step arrayList in the Recipe class
     public void addStepToRecipe() {
 
         //add step to recipe
@@ -193,7 +204,7 @@ public class NewRecipeActivity extends AppCompatActivity {
     public Recipe getRecipe(){
         return recipe;
     }
-
+    //clears the ratingET when clicked
     public void clearMessage(View view) {
         enterRateEt.setText("");
     }

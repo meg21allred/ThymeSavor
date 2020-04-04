@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//This class handles all the data for each recipes
 @Entity(tableName = "recipe_table")
 public class Recipe {
 

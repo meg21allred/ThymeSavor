@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 
 import java.util.List;
-
+//this class is need to make the room library function
 public class RecipeRepository {
     private RecipeDao recipeDao;
     private LiveData<List<Recipe>> allRecipes;

@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
+//This class is needed to make the room library function
 public class RecipeViewModel extends AndroidViewModel {
 
     private RecipeRepository repository;
